@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MarbleBehavior : MonoBehaviour
 {
+    public GameBehavior gameManager;
     public float moveSpeed = 0.01f;
     public float rotateSpeed = 0.05f;
     public float jumpVelocity = 5f;
- 
+
     private float fbInput;
     private float lrInput;
     private bool jumped;
     public GameObject Blast;
     public float blastSpeed = 100f;
-
     private Rigidbody _rb;
 
     void Start()
@@ -21,7 +21,7 @@ public class MarbleBehavior : MonoBehaviour
         //You'll need to add a rigidbody to the marble first
         _rb = GetComponent<Rigidbody>();
         jumped = false;
-        //Blast = ///;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameBehavior>();
     }
 
     // Update is called once per frame
@@ -40,6 +40,13 @@ public class MarbleBehavior : MonoBehaviour
         {
             jumped = false;
         }
+        if(collision.gameObject.name == "Obstacle" || 
+            collision.gameObject.name == "X Mover" ||
+            collision.gameObject.name == "Z Mover")
+       {
+           gameManager._playerHP -= 5;
+        }
+        Debug.Log(collision.gameObject.name);
     }
 
     void FixedUpdate()
@@ -53,12 +60,21 @@ public class MarbleBehavior : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("hit");
-            GameObject newblast = Instantiate(Blast, this.transform.position + new Vector3(1, 0, 0),
-                this.transform.rotation) as GameObject;
+            GameObject newblast = Instantiate(Blast, this.transform.position +
+              new Vector3(1, 0, 0), this.transform.rotation) as GameObject;
             Rigidbody blastRB = newblast.GetComponent<Rigidbody>();
-            blastRB.velocity = this.transform.forward * blastSpeed; 
+            blastRB.velocity = this.transform.forward * blastSpeed;
         }
     }
+
+/*
+    void OnCollisionEnter(Collision collision)
+    {
+       //Put collision code here
+       if(collision.gameObject.name == "Obstacle")
+       {
+           gameManager._playerHP -= 25;
+        }
+    }*/
 
 }

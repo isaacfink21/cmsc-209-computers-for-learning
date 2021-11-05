@@ -5519,6 +5519,7 @@ GameObject:
   - component: {fileID: 768545877}
   - component: {fileID: 768545881}
   - component: {fileID: 768545882}
+  - component: {fileID: 768545883}
   m_Layer: 0
   m_Name: Marble
   m_TagString: Untagged
@@ -5541,7 +5542,7 @@ MonoBehaviour:
   moveSpeed: 0.05
   rotateSpeed: 0.1
   jumpVelocity: 5
-  Blast: {fileID: 0}
+  Blast: {fileID: 1979922439}
   blastSpeed: 100
 --- !u!23 &768545878
 MeshRenderer:
@@ -5600,7 +5601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 768545876}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -13.7, y: -14.163, z: 40.7}
+  m_LocalPosition: {x: -13.7, y: -14.163, z: 40.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5635,6 +5636,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &768545883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 768545876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6297e64afda5747089562dfa520f9af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  labelText: Collect all 4 items and win your freedom!
 --- !u!1 &804379074
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5840,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4391345968277829328, guid: 5c3093e6165ef45858c00a310cbc2fe2,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829329, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
       propertyPath: m_Name
@@ -5838,8 +5857,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.05624
+      value: 34.056248
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
@@ -5849,7 +5878,7 @@ PrefabInstance:
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.188805
+      value: -15.18882
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
@@ -5859,17 +5888,17 @@ PrefabInstance:
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4391345968277829332, guid: 5c3093e6165ef45858c00a310cbc2fe2,
         type: 3}
@@ -5885,6 +5914,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9222332606974480854, guid: 5c3093e6165ef45858c00a310cbc2fe2,
+        type: 3}
+      propertyPath: blastDelay
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c3093e6165ef45858c00a310cbc2fe2, type: 3}
@@ -11270,6 +11304,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877980112}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1979922439 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4391345968277829329, guid: 5c3093e6165ef45858c00a310cbc2fe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 944880169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058975208
 GameObject:
   m_ObjectHideFlags: 0

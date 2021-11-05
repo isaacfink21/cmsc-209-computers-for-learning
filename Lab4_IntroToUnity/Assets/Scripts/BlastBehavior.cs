@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BlastBehavior : MonoBehaviour {
 public float blastDelay = 3f;
-    void Start () 
+    void Start ()
     {
         Destroy(this.gameObject, blastDelay);
     }
