@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MarbleBehavior : MonoBehaviour
@@ -43,9 +44,13 @@ public class MarbleBehavior : MonoBehaviour
         if(collision.gameObject.name == "Obstacle" || 
             collision.gameObject.name == "X Mover" ||
             collision.gameObject.name == "Z Mover")
-       {
+        {
            gameManager._playerHP -= 5;
         }
+        if(gameManager._playerHP <= 0)
+                {
+                    gameManager.showWinScreen = -100;
+                }
         Debug.Log(collision.gameObject.name);
     }
 
@@ -66,15 +71,5 @@ public class MarbleBehavior : MonoBehaviour
             blastRB.velocity = this.transform.forward * blastSpeed;
         }
     }
-
-/*
-    void OnCollisionEnter(Collision collision)
-    {
-       //Put collision code here
-       if(collision.gameObject.name == "Obstacle")
-       {
-           gameManager._playerHP -= 25;
-        }
-    }*/
 
 }
